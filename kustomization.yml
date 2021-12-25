@@ -1,0 +1,4 @@
+commonLabels:
+  app: gui-app
+resources:
+  - deploy/gui.yaml

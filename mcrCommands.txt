@@ -1,0 +1,26 @@
+minikube start
+
+minikube tunnel
+
+
+kubectl get pods,svc,deployments
+
+kubectl apply -f vue-deployment.yaml,vue-service.yaml,nodejs-service.yaml,db-service.yaml,app-network-networkpolicy.yaml,nodejs-deployment.yaml,db-deployment.yaml
+
+kubectl describe services vue
+
+kubectl attach nodejs-65fd4b8746-gvq28
+
+kubectl exec --stdin --tty vue-8584f4ddc9-tfzsp -- /bin/sh
+
+kubectl exec --stdin --tty nodejs-8584f4ddc9-tfzsp -- /bin/bash
+
+kubectl delete deployments --all
+kubectl delete svc --all
+
+
+docker build -t buckybuck/mcrvue ./vue/
+docker push buckybuck/mcrvue
+
+docker build -t buckybuck/mcrapi ./api
+docker push buckybuck/mcrapi
